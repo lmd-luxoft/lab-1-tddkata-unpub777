@@ -10,11 +10,48 @@ namespace TDDKata
     public class TestClass
     {
         [Test]
-        public void SimpleTest()
+        public void Sum_TwoNumber_ShouldReturnSum()
         {
-            StringCalc calc = new StringCalc();
-            int value = calc.Sum("2,2");
-            Assert.That(value, Is.EqualTo(4), "Wrong actual value");
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "2,2";
+            var expected = 4;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Sum_NumberIsNegative_ShouldReturnError()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "-3";
+            var expected = -1;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Sum_ParamIsEmptyString_ShouldReturnZero()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = string.Empty;
+            var expected = 0;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }

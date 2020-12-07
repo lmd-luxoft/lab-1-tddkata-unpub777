@@ -9,31 +9,16 @@ namespace TDDKata
     [TestFixture]
     public class TestClass
     {
-        [Test]
-        public void Sum_TwoNumber_ShouldReturnSum()
+        [TestCase("2,2", 4)]
+        [TestCase("7", 7)]
+        [TestCase("1,2,3,4,5", 15)]
+        public void Sum_TwoNumber_ShouldReturnSum(string testCase, int expected)
         {
             //Arrange
             var calc = new StringCalc();
-            var inputParams = "2,2";
-            var expected = 4;
 
             //Act
-            int actual = calc.Sum(inputParams);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void Sum_OneNumber_ShouldReturnSum()
-        {
-            //Arrange
-            var calc = new StringCalc();
-            var inputParams = "5";
-            var expected = 5;
-
-            //Act
-            int actual = calc.Sum(inputParams);
+            int actual = calc.Sum(testCase);
 
             //Assert
             Assert.AreEqual(expected, actual);

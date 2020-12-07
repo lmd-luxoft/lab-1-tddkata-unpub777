@@ -105,8 +105,23 @@ namespace TDDKata
         {
             //Arrange
             var calc = new StringCalc();
-            var inputParams = "//;\n1;2,3";
-            var expected = 6;
+            var inputParams = "//;\n1;3";
+            var expected = 4;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Sum_CustomSeparator_ShouldHandleOnlyCustomSeparator()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "//;\n1;3,5";
+            var expected = -1;
 
             //Act
             int actual = calc.Sum(inputParams);

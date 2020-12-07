@@ -131,6 +131,7 @@ namespace TDDKata
         }
 
         [TestCase("1001,2", 2)]
+        [TestCase("1000,2", 1002)]
         [TestCase("1001", 0)]
         public void Sum_InputStringHasBigNumbers_ShouldIgnoreBigNumbersAndSumRestNumbers(string input, int expected)
         {

@@ -31,6 +31,9 @@ namespace TDDKata
                     return ERROR;
                 }
 
+                if (number > 1000)
+                    continue;
+
                 result += number;
             }
 

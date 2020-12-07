@@ -25,6 +25,36 @@ namespace TDDKata
         }
 
         [Test]
+        public void Sum_OneNumber_ShouldReturnSum()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "5";
+            var expected = 5;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Sum_ParamIsWrongNumber_ShouldReturnError()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "param";
+            var expected = -1;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void Sum_NumberIsNegative_ShouldReturnError()
         {
             //Arrange

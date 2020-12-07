@@ -39,6 +39,7 @@ namespace TDDKata
             Assert.AreEqual(expected, actual);
         }
 
+
         [Test]
         public void Sum_IncorrectSeparator_ShouldReturnError()
         {
@@ -91,6 +92,21 @@ namespace TDDKata
             var calc = new StringCalc();
             var inputParams = string.Empty;
             var expected = 0;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Sum_CustomSeparator_ShouldCorrectHandleSeparatorAndSum()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "//;\n1;2,3";
+            var expected = 6;
 
             //Act
             int actual = calc.Sum(inputParams);

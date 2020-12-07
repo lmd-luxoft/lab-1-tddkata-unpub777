@@ -25,6 +25,36 @@ namespace TDDKata
         }
 
         [Test]
+        public void Sum_NumbersWithDifferentSeparators_ShouldHandleAndReturnSum()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "1,2\n3,4,5";
+            var expected = 15;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Sum_IncorrectSeparator_ShouldReturnError()
+        {
+            //Arrange
+            var calc = new StringCalc();
+            var inputParams = "1;3";
+            var expected = -1;
+
+            //Act
+            int actual = calc.Sum(inputParams);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
         public void Sum_ParamIsWrongNumber_ShouldReturnError()
         {
             //Arrange

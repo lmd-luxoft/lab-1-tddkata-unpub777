@@ -129,5 +129,19 @@ namespace TDDKata
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase("1001,2", 2)]
+        [TestCase("1001", 0)]
+        public void Sum_InputStringHasBigNumbers_ShouldIgnoreBigNumbersAndSumRestNumbers(string input, int expected)
+        {
+            //Arrange
+            var calc = new StringCalc();
+
+            //Act
+            int actual = calc.Sum(input);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

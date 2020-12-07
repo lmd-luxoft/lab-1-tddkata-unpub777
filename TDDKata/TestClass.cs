@@ -12,7 +12,7 @@ namespace TDDKata
         [TestCase("2,2", 4)]
         [TestCase("7", 7)]
         [TestCase("1,2,3,4,5", 15)]
-        public void Sum_TwoNumber_ShouldReturnSum(string testCase, int expected)
+        public void Sum_NumbersSum_ShouldReturnSum(string testCase, int expected)
         {
             //Arrange
             var calc = new StringCalc();

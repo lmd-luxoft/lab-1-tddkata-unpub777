@@ -6,22 +6,24 @@ namespace TDDKata
 {
     internal class StringCalc
     {
-        private const char separatov = ',';
+        private const char SEPARATOR = ',';
+        private const int ERROR = -1;
+        private const int EMPTY = 0;
 
         internal int Sum(string v)
         {
             if (string.IsNullOrEmpty(v))
             {
-                return 0;
+                return EMPTY;
             }
 
-            var result = 0;
+            var result = EMPTY;
 
-            foreach(var item in v.Split(separatov))
+            foreach(var item in v.Split(SEPARATOR))
             {
                 if (!int.TryParse(item.Trim(), out var number) || number < 0)
                 {
-                    return -1;
+                    return ERROR;
                 }
 
                 result += number;
